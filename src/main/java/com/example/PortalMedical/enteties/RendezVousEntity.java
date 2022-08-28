@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,6 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.sun.istack.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,6 +51,10 @@ public class RendezVousEntity implements Serializable {
 	
 	@OneToOne
 	private UserEntity user;
+	
+	
+	@OneToOne
+	private PatientEntity patient;
 	
 	
 	

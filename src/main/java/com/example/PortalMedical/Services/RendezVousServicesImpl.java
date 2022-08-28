@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.PortalMedical.DTO.UserDTO;
+import com.example.PortalMedical.Repositories.PatientRepository;
 import com.example.PortalMedical.Repositories.RendezVousRepository;
 import com.example.PortalMedical.Repositories.UserRepository;
+import com.example.PortalMedical.enteties.PatientEntity;
 import com.example.PortalMedical.enteties.RendezVousEntity;
 import com.example.PortalMedical.enteties.Role;
 import com.example.PortalMedical.enteties.UserEntity;
@@ -26,6 +28,8 @@ public class RendezVousServicesImpl implements RendezVousServices {
     UserRepository userRepository;
 	@Autowired
 	PasswordServices mailService;
+	@Autowired
+	PatientRepository patientRepository;
 	
 	@Override
 	public RendezVousEntity ajouterApt(RendezVousEntity apt) {
@@ -36,6 +40,9 @@ public class RendezVousServicesImpl implements RendezVousServices {
 		}else {
 			UserEntity user=userRepository.findById(apt.getUser().getId()).get();
 			apt.setUser(user);
+			/*PatientEntity patient = patientRepository.findById(apt.getPatient().getId()).get();
+			apt.setPatient(patient);
+			apt.setPatientEmail(patient.getEmail());*/
 			mailService.EnvoyerEmailAjout(apt);
 			return rvrepo.save(apt);
 		}

@@ -69,6 +69,7 @@ public class RendezVousServicesImpl implements RendezVousServices {
 		}else {
 		UserEntity user = userRepository.findById(apt.getUser().getId()).get();
 		rdv.setUser(user);
+		mailService.EnvoyerEmailAjout(apt);
 		rdv=rvrepo.save(apt);
 		return rdv;
 		}

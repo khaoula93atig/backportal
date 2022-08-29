@@ -29,7 +29,7 @@ HorairesRdvServices horairerdvservices;
 @Autowired
 RendezVousRepository rdvrepository;
 
-@PostMapping("/ajouterhoraire")
+/*@PostMapping("/ajouterhoraire")
 public HorairesRdvEntity ajouterhoraire(@RequestBody HorairesRdvEntity horaire) {
 	RendezVousEntity rdv = rdvrepository.findById(HorairesRdvEntity.getRendezVousEntities().getId()).get();
 	horaire.setRendezVousEntities(rdv);
@@ -54,5 +54,5 @@ public void deletehoraireById(@PathVariable(name = "id") String id) {
 @PutMapping
 public HorairesRdvEntity updatHorairesRdvEntity(@RequestBody HorairesRdvEntity horaire) {
 	return horairerdvservices.updateHorairesRdvEntity(horaire);
-}
+}*/
 }
